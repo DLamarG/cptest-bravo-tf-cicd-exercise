@@ -1,12 +1,12 @@
-name: 'Terraform CI/CD Wk14'
+name: 'Terraform Destroy Wk14'
 
-on:
-  push:
-    branches:
-      - testing
+# on:
+#   push:
+#     branches:
+#       - destroy
 
 jobs:
-  terraform:
+  terraform-destroy:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,8 +26,9 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-    - name: Terraform Plan
-      run: terraform plan
+    - name: Terraform Destroy Plan
+      run: terraform plan -destroy
 
-    - name: Terraform Apply
-      run: terraform apply --auto-approve
+    - name: Terraform Destroy
+      run: terraform destroy --auto-approve
+
